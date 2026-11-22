@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+:root {
+  --ivory-bg: #F8F5EF;
+  --ivory-paper: #FFFEFA;
+  --turquoise-light: #9FD4DD;
+  --turquoise-mid: #74B7C4;
+  --turquoise-deep: #4A8B98;
+  --turquoise-shadow: #336773;
+  --key-cream: #F6EFE0;
+  --key-cream-edge: #D7CBB3;
+  --ink-charcoal: #2B2724;
+  --heart-crimson: #C93B4B;
+  --gold-coin: #E5B95C;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: var(--ivory-bg);
+  color: var(--ink-charcoal);
+  overflow-x: hidden;
+}
+
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-typewriter {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}
+
+/* Subtle Vintage Film Grain Texture Overlay */
+.vintage-grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* Cream Round Mechanical Keycap */
+.typewriter-keycap {
+  background: radial-gradient(circle at 35% 28%, #FFFDF8 0%, #F5ECDA 72%, #E4D6BC 100%);
+  border: 2px solid #2C2926;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 3px rgba(170, 152, 122, 0.35),
+    0 4px 0 #262320,
+    0 6px 8px rgba(40, 34, 28, 0.32);
+  transition: transform 0.08s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.08s ease;
+}
+
+.typewriter-keycap:hover:not(:disabled) {
+  transform: translateY(-0.5px);
+}
+
+.typewriter-keycap.is-pressed,
+.typewriter-keycap:active:not(:disabled) {
+  transform: translateY(3.5px) scale(0.97);
+  box-shadow:
+    inset 0 2px 4px rgba(120, 106, 84, 0.45),
+    0 0.5px 0 #262320,
+    0 2px 3px rgba(40, 34, 28, 0.25);
+}
+
+/* Cream Mechanical Spacebar */
+.typewriter-spacebar {
+  background: linear-gradient(180deg, #FDF9F0 0%, #F3E9D4 65%, #DFD0B4 100%);
+  border: 2px solid #2C2926;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.9),
+    0 4px 0 #24211E,
+    0 7px 10px rgba(40, 34, 28, 0.3);
+  transition: transform 0.08s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.08s ease;
+}
+
+.typewriter-spacebar.is-pressed,
+.typewriter-spacebar:active:not(:disabled) {
+  transform: translateY(3.5px);
+  box-shadow:
+    inset 0 2px 4px rgba(120, 106, 84, 0.45),
+    0 1px 0 #24211E;
+}
+
+/* Golden Coin Metallic Sheen */
+.vintage-gold-coin {
+  background: radial-gradient(circle at 32% 28%, #FFF5CA 0%, #ECC363 48%, #C48E2A 95%);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 252, 232, 0.9),
+    inset 0 -3px 5px rgba(128, 86, 16, 0.5),
+    0 6px 14px rgba(72, 54, 20, 0.28);
+}
+
+/* Typewriter Wake-Up Mechanical Vibration */
+@keyframes machineWakeVibrate {
+  0%, 100% { transform: translate(0, 0); }
+  18% { transform: translate(-2.5px, 1.5px); }
+  36% { transform: translate(2.5px, -1.5px); }
+  54% { transform: translate(-2px, 1px); }
+  72% { transform: translate(1.5px, -1px); }
+}
+
+.animate-machine-wake {
+  animation: machineWakeVibrate 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Golden Coin Spin Into Slot */
+@keyframes coinInsertSpin {
+  0% {
+    transform: translateY(-28px) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(10px) rotateY(360deg) scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(36px) rotateY(540deg) scale(0.55);
+    opacity: 0;
+  }
+}
+
+.animate-coin-insert {
+  animation: coinInsertSpin 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Floating Romantic Hearts & Musical Notes */
+@keyframes floatHeartUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.7) rotate(-8deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.85;
+  }
+  70% {
+    transform: translateY(-90px) translateX(var(--hx, 14px)) scale(1.08) rotate(10deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-165px) translateX(var(--hx2, -10px)) scale(0.85) rotate(-12deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation: floatHeartUp var(--hdur, 3.2s) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes gentleAmbientHeart {
+  0% {
+    transform: translateY(0) translateX(0) rotate(-6deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.34;
+  }
+  80% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(18px) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-ambient-heart {
+  animation: gentleAmbientHeart var(--adur, 19s) linear infinite;
+}
+
+@keyframes envelopeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-envelope-enter {
+  animation: envelopeSlideIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-heart,
+  .animate-float-heart,
+  .animate-machine-wake,
+  .animate-coin-insert {
+    animation: none !important;
+  }
+}
